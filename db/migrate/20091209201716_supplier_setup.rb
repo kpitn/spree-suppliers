@@ -2,20 +2,11 @@ class SupplierSetup < ActiveRecord::Migration
   def self.up
     create_table :suppliers do |t|
       t.string :name
-      t.string :address1
-      t.string :address2
-      t.string :city
-      t.string :state_id
-      t.string :zip_code
-      t.string :phone
-      t.string :fax
-      t.string :email
-      t.string :website
-      t.text :notes
-      
+      t.string :initial, :limit => 5
       t.timestamps
     end
     add_column :products, :supplier_id, :integer
+    add_index :products, :supplier_id
   end
 
   def self.down

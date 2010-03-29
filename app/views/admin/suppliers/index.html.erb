@@ -1,43 +1,31 @@
 <%= render :partial => 'admin/shared/configuration_menu' %>
- 
-<h1>
-	<%=t("suppliers") %>
-</h1>
-<table class="admin-report" width="545">
-	<thead>
-		<tr>
-			<th>
-				<%=t("supplier_name")%>
-			</th>
-			<th>
-				<%=t("email")%>
-			</th>
-			<th>
-				<%=t("phone")%>
-			</th>
-			<th>
-				<%=t("action")%>
-			</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @suppliers.each do |supplier| %>
-		<tr class="<%= cycle('even', 'odd') %>">
-			<td>
-				<%= supplier.name %>
-			</td>
-			<td>
-				<%= supplier.email %>
-			</td>
-			<td>
-				<%= supplier.phone %>
-			</td>
-			<td>
-				<%=link_to t("edit"), edit_object_url(supplier) %> | <%=link_to t("delete"), object_url(supplier), :method => :delete %>
-			</td>
-		</tr><% end %>
-	</tbody>
-</table>
 
- 
-<%= link_to t("new_supplier"), new_object_url %>
+<div class='toolbar'>
+  <ul class='actions'>
+    <li>
+      <%= button_link_to t("new_supplier"), new_object_url, :icon => 'add'  %>
+    </li>
+  </ul>
+  <br class='clear' />
+</div>
+
+<h1><%=t("suppliers") %></h1>
+
+<table class="index">
+  <thead>
+    <tr>
+      <th><%=t("supplier_name")%></th>
+      <th><%=t("initial")%></th>
+      <th><%=t("action")%>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @suppliers.each do |supplier| %>
+    <tr id="<%= dom_id supplier %>">
+      <td><%= supplier.name %></td>
+      <td><%= supplier.initial %></td>
+      <td>      <%= link_to_edit supplier %> &nbsp; <%= link_to_delete supplier %></td>
+    </tr><% end %>
+  </tbody>
+</table>

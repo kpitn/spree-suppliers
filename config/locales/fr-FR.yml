@@ -1,0 +1,12 @@
+---
+fr-FR:
+  available_suppliers: "Fournisseur(s) disponible(s)"
+  editing_supplier: "Edition d'un fournisseur"
+  fax: "Fax"
+  initial : "Initiale"
+  new_supplier: "Nouveau Fournisseur"
+  notes: "Notes"
+  supplier: "Fournisseur"
+  supplier_name: "Nom"
+  suppliers: "Fournisseurs"
+  suppliers_description: "Manage Suppliers"
